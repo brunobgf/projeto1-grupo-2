@@ -3,7 +3,7 @@ import java.util.*;
 
 public class Subjects {
 
-	private List<Students> studentsEnrolledList;
+	private List<Student> studentsEnrolledList;
 	private Professor professor;
 	private boolean required;
 	private boolean active;
@@ -11,7 +11,7 @@ public class Subjects {
 	private static int MAX_STUDENT = 60;
 	private static int MIN_STUDENTS = 3;
 
-	public void enrollStudent(Sudent student) {
+	public void enrollStudent(Student student) {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
 
