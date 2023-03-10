@@ -5,9 +5,9 @@ public class Academics {
 
 	private String name;
 	private int credits;
-	private List<Subjects> subjectAcademicList;
+	private List<Subject> subjectAcademicList;
 
-	public List generateCurriculum(List<Subjects> subjectsList) {
+	public List generateCurriculum(List<Subject> subjectsList) {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
 

@@ -3,10 +3,10 @@ import java.util.*;
 
 public class Administrative {
 
-	private List<Subjects> subjectsList;
+	private List<Subject> subjectsList;
 	private Date cancelationDateLimit;
 
-	public void cancelEnrollment(Subjects subject) {
+	public void cancelEnrollment(Subject subject) {
 		throw new UnsupportedOperationException("The method is not implemented yet.");
 	}
 

@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Subjects {
+public class Subject {
 
 	private List<Student> studentsEnrolledList;
 	private Professor professor;
