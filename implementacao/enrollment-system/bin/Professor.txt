@@ -1,0 +1,2 @@
+Paulo;01;29;Masculino;123;Engenharia de Software=Calculo
+Bruno;02;32;Masculino;111;Administracao=Estatistica

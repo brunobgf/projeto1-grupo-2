@@ -1,0 +1,42 @@
+
+userMenu(){
+
+	swith case (user.accessLevel)
+	1: optionsAccessLevelAdm()
+	2: optionsAccessLevelOne()
+	3: optionsAccessLevelTwo()	
+
+}
+
+optionsAccessLevelAdm(){
+   System.Out.Println(lista de opções...)
+   swith case (opcao escolhida) 
+	1: addStudent();
+}
+
+addStudent(){
+   System.Out.Println("Digite os dados do estudante...");
+   users.add(new Student(strDados));
+}
+
+optionsAccessLevelOne(){
+   System.Out.Println(lista de opções...)
+   swith case (opcao escolhida) 
+	1: getStudents();
+}
+
+getStudents(){
+   System.Out.Println("Qual curso e disciplina?");
+   criar stream com lista de usuários, filtradando por curso e disciplina (usuários com nivel de acesso = 2, matriculados no curso XX e disciplina YY);
+}
+
+enrollStudent(){
+  System.Out.Println("Qual curso e disciplina?");
+  subject =  (getCousre(strNomeCurso).subjectAvailable    (strDisciplina)); // Verifica se está disponivél e ja retorna ela.
+  If (subject =! Null) 
+    Student(getUser(strChave).newSubject(strNomeCurso, subject); 
+}
+
+newSubject(String strNomeCurso, Subject subject){
+   getCourse(strNomeCurso).addSubject(subject))
+{

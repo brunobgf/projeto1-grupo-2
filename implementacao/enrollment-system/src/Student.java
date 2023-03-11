@@ -3,25 +3,30 @@ import java.util.*;
 
 public class Student extends User {
 
+	Student(String [] dados, List <Course> courses){
+		super(dados, courses);
+		setAccessLeve(2);
+	}
+
 	private static int MAX_REQ_SUBJECTS = 4;
 	private static int MAX_OPT_SUBJECTS = 2;
 	private int enrolledOptionalSubjects;
 	private int enrolledRequiredSubjects;
 
-	public void requestSubjectEnrollment() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+	public void newSubject(String strNomeCurso, Subject subject) {
+		
 	}
 
 	public void requestSubjectEnrollmentCancelation() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void verifyRequiredSubjects() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 	private void verifyOptionalSubjects() {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		
 	}
 
 }

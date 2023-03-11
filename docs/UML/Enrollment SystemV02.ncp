@@ -1,0 +1,181 @@
+<Project>
+  <Name>Enrollment System</Name>
+  <ProjectItem type="NClass.DiagramEditor.ClassDiagram.Diagram" assembly="NClass.DiagramEditor, Version=2.4.1823.0, Culture=neutral, PublicKeyToken=null">
+    <Name>Java</Name>
+    <Language>Java</Language>
+    <Entities>
+      <Entity type="Class">
+        <Name>Finantial</Name>
+        <Access>Public</Access>
+        <Location left="750" top="159" />
+        <Size width="189" height="115" />
+        <Collapsed>True</Collapsed>
+        <Member type="Field">private static double TAX_ENROLL = 1000.00</Member>
+        <Member type="Method">public void generateBilling()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Secretary</Name>
+        <Access>Public</Access>
+        <Location left="380" top="118" />
+        <Size width="263" height="127" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Date cancelationDateLimit</Member>
+        <Member type="Method">public void notifyFinantial()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Subject</Name>
+        <Access>Public</Access>
+        <Location left="796" top="1010" />
+        <Size width="250" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private Boolean required</Member>
+        <Member type="Field">private Boolean active</Member>
+        <Member type="Field">private int studentEnrollmentQtd</Member>
+        <Member type="Field">private static int MAX_STUDENT = 60</Member>
+        <Member type="Field">private static int MIN_STUDENTS = 3</Member>
+        <Member type="Method">public void verifyEnrollPeriod()</Member>
+        <Member type="Method">public boolean activateDeactivate()</Member>
+        <Member type="Method">private void cancelSubject()</Member>
+        <Member type="Method">private void closeSubject()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Professor</Name>
+        <Access>Public</Access>
+        <Location left="92" top="701" />
+        <Size width="225" height="94" />
+        <Collapsed>False</Collapsed>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Student</Name>
+        <Access>Public</Access>
+        <Location left="68" top="865" />
+        <Size width="242" height="213" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private static int MAX_REQ_SUBJECTS = 4</Member>
+        <Member type="Field">private static int MAX_OPT_SUBJECTS = 2</Member>
+        <Member type="Field">private int enrolledOptionalSubjects</Member>
+        <Member type="Field">private int enrolledRequiredSubjects</Member>
+        <Member type="Method">public void newSubject(String strNomeCurso, Subject subject)</Member>
+        <Member type="Method">public void requestSubjectEnrollmentCancelation()</Member>
+        <Member type="Method">private void verifyRequiredSubjects()</Member>
+        <Member type="Method">private void verifyOptionalSubjects()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>Course</Name>
+        <Access>Public</Access>
+        <Location left="783" top="756" />
+        <Size width="250" height="196" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private List&lt;Subject&gt; subjectsList</Member>
+        <Member type="Method">public void newSubject(String strDados)</Member>
+        <Member type="Method">public void addSubject(String strName)</Member>
+        <Member type="Method">public Subject subjectAvailable(String strDisciplina)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>University</Name>
+        <Access>Public</Access>
+        <Location left="380" top="301" />
+        <Size width="281" height="315" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private list&lt;Course&gt; Courses</Member>
+        <Member type="Field">private list&lt;User&gt; Users</Member>
+        <Member type="Field">private Secretary secretary</Member>
+        <Member type="Field">private int keyAccess</Member>
+        <Member type="Method">public void login()</Member>
+        <Member type="Method">public void userMenu()</Member>
+        <Member type="Method">private void optionsAccessLevelOne()</Member>
+        <Member type="Method">private void optionsAccessLevelTwo()</Member>
+        <Member type="Method">private void optionsAccessLevelAdm()</Member>
+        <Member type="Method">private void addStudent(String strChave)</Member>
+        <Member type="Method">private void addProfessor()</Member>
+        <Member type="Method">private void addSubject()</Member>
+        <Member type="Method">private void enrollStudent()</Member>
+        <Member type="Method">private void getStudents()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>User</Name>
+        <Access>Public</Access>
+        <Location left="423" top="806" />
+        <Size width="225" height="128" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private int accessLeve</Member>
+        <Member type="Field">private list &lt;courses&gt; courses</Member>
+        <Member type="Method">public Course getCourse(String strName)</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+    </Entities>
+    <Relationships>
+      <Relationship type="Association" first="5" second="2">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>912</X>
+          <Y>980</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="0">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="5">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>691</X>
+          <Y>402</Y>
+        </BendPoint>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Composition</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="1" second="6">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <BendPoint relativeToStartShape="False">
+          <X>491</X>
+          <Y>274</Y>
+        </BendPoint>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Association" first="6" second="7">
+        <StartOrientation>Vertical</StartOrientation>
+        <EndOrientation>Vertical</EndOrientation>
+        <Direction>Unidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <BendPoint relativeToStartShape="True">
+          <X>342</X>
+          <Y>980</Y>
+        </BendPoint>
+        <BendPoint relativeToStartShape="False">
+          <X>398</X>
+          <Y>869</Y>
+        </BendPoint>
+      </Relationship>
+      <Relationship type="Association" first="5" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
+      </Relationship>
+    </Relationships>
+  </ProjectItem>
+</Project>
