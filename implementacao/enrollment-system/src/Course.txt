@@ -1,2 +1,2 @@
-Engenharia de Software=Cálculo/Estatística
-Administração=Matemática Discreta
+Engenharia de Software;Calculo;Estatística
+Administração;Estatística;Matemática Discreta
