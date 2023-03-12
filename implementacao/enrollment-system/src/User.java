@@ -2,7 +2,7 @@ import java.util.*;
 
 public class User {
 
-	private int accessLeve;
+	private int accessLevel;
 	private List <Course> courses;
 	private String user;
 	private int keyAccess;
@@ -43,12 +43,12 @@ public class User {
 		this.keyAccess = keyAccess;
 	}
 
-	public int getAccessLeve() {
-		return accessLeve;
+	public int getAccessLevel() {
+		return accessLevel;
 	}
 
-	public void setAccessLeve(int accessLeve) {
-		this.accessLeve = accessLeve;
+	public void setAccessLevel(int accessLevel) {
+		this.accessLevel = accessLevel;
 	}
 
 	public List<Course> getCourses() {

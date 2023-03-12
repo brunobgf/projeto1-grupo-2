@@ -54,7 +54,7 @@ public class App {
     }
 
     public static void userMenu() {
-        switch (University.getUser(keyAccess).getAccessLeve()) {
+        switch (University.getUser(keyAccess).getAccessLevel()) {
             case 1:
                 optionsAccessLevelOne();
                 break;
@@ -67,6 +67,10 @@ public class App {
     }
 
     private static void optionsAccessLevelTwo() {
+        System.out.println("\nOlá " + University.getUser(keyAccess).getUser() + ".\nO que deseja fazer?\n");
+        System.out.println("\nOlá " + University.getUser(keyAccess).getCourses() + ".\nO que deseja fazer?\n");
+
+
 
     }
 
@@ -102,6 +106,8 @@ public class App {
         University.loadSubjectData(path);
         University.loadCourseData(path);
         University.loadProfessorData(path);
+        University.loadStudentData(path);
+
 
         int option;
 

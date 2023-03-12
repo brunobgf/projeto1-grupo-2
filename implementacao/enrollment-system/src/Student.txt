@@ -1,1 +1,1 @@
-Ana;14199417633;20;Feminino;{Engenharia de Software};{Cálculo; Estatística}
+Ana;03;20;Feminino;678;{~Engenharia de Software=Calculo/Estatística~}

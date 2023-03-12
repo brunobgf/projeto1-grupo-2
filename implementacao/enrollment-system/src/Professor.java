@@ -4,7 +4,7 @@ public class Professor extends User {
 
     Professor(String[] dados, List <Course> courses){
         super(dados, courses);
-        setAccessLeve(1);
+        setAccessLevel(1);
     }
 
 }

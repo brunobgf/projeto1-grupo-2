@@ -5,7 +5,7 @@ public class Student extends User {
 
 	Student(String [] dados, List <Course> courses){
 		super(dados, courses);
-		setAccessLeve(2);
+		setAccessLevel(2);
 	}
 
 	private static int MAX_REQ_SUBJECTS = 4;

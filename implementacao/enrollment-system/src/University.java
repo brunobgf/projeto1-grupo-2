@@ -90,7 +90,7 @@ public class University {
 		String subject = keyboard.nextLine();
 
 		users.stream()
-				.filter(c -> c.getAccessLeve() == 3)
+				.filter(c -> c.getAccessLevel() == 2)
 				.filter(c -> c.getCourse(course) != null)
 				.filter(c -> c.getCourse(course).subjectAvailable(subject) != null)
 				.forEach(System.out::println);
@@ -186,11 +186,11 @@ public class University {
 	public static void loadProfessor(String dados) {
 		String[] professor = dados.split(";");
 		String[] courses = professor[5].split(",");
-		User newProfessor = new Professor(professor, loadWorkingCourses(courses));
+		User newProfessor = new Professor(professor, loadActiveCourses(courses));
 		users.add(newProfessor);
 	}
 
-	private static LinkedList<Course> loadWorkingCourses(String[] courses) {
+	private static LinkedList<Course> loadActiveCourses(String[] courses) {
 		LinkedList<Subject> listSubjects = new LinkedList<Subject>();
 		LinkedList<Course> listCourses = new LinkedList<Course>();
 
@@ -198,7 +198,6 @@ public class University {
 			String[] vetAux = courses[i].split("=");
 			String nameCourse = vetAux[0];
 			String[] subjects = vetAux[1].split("/");
-
 			for (int y = 0; y < subjects.length; y++) {
 				Subject subject = getCourse(nameCourse).getSubject(subjects[y]);
 				listSubjects.add(subject);
@@ -209,6 +208,29 @@ public class University {
 
 		return listCourses;
 	}
+
+	public static void loadStudentData(String professorPath) {
+		try {
+			Path path = Paths.get(professorPath.concat("/Student.txt"));
+			Scanner sc = new Scanner(path, "UTF-8");
+			while (sc.hasNextLine()) {
+				String row = sc.nextLine();
+				loadStudent(row);
+			}
+			sc.close();
+		} catch (IOException io) {
+			System.out.println("Error at opening the file");
+		}
+	}
+
+	public static void loadStudent(String dados) {
+		String[] student = dados.split(";");
+		String[] courses = student[5].substring(2, student[5].length()-1).split("~"); 
+
+		User newStudent = new Student(student, loadActiveCourses(courses));
+		users.add(newStudent);
+	}
+
 
 	// #endregion
 
