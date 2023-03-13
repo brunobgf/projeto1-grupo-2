@@ -6,7 +6,7 @@ public class App {
     private static Scanner keyboard = new Scanner(System.in, "UTF-8");
     static University universityEnrollmentSystem = new University();
     private static int keyAccess;
-    private static String path = "C:\\Users\\bruno\\OneDrive\\Documentos\\folder\\projeto1-grupo-2\\implementacao\\enrollment-system\\src";
+    private static String path = System.getProperty("user.dir").replaceAll("\\\\", "/") + "/src";
     // #endregion
 
     // #region UTILS
@@ -69,9 +69,6 @@ public class App {
     private static void optionsAccessLevelTwo() {
         System.out.println("\nOlá " + University.getUser(keyAccess).getUser() + ".\nO que deseja fazer?\n");
         System.out.println("\nOlá " + University.getUser(keyAccess).getCourses() + ".\nO que deseja fazer?\n");
-
-
-
     }
 
     private static void optionsAccessLevelOne() {
@@ -107,7 +104,6 @@ public class App {
         University.loadCourseData(path);
         University.loadProfessorData(path);
         University.loadStudentData(path);
-
 
         int option;
 

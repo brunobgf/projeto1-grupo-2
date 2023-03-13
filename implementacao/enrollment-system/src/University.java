@@ -8,16 +8,15 @@ public class University {
 	private static LinkedList<Course> courses = new LinkedList<Course>();
 	private static LinkedList<Subject> subjectList = new LinkedList<Subject>();
 	private static LinkedList<User> users = new LinkedList<User>();
-	private static int keyAccess;
 	private static Scanner keyboard = new Scanner(System.in, "UTF-8");
 	// #endregion
 
 	// #region UTILS
 	public static int getKeyAccess(String user, String password) {
-		return keyAccess = users.stream()
-				.filter(c -> c.getUser().equals(user))
-				.filter(c -> c.getPassword().equals(password))
-				.findFirst().get().getKeyAccess();
+		return users.stream()
+					.filter(c -> c.getUser().equals(user))
+					.filter(c -> c.getPassword().equals(password))
+					.findFirst().get().getKeyAccess();
 	}
 
 	static User getUser(int keyAccess) {
