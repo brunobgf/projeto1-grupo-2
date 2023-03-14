@@ -8,7 +8,7 @@ public class Finantial {
 
 	public void generateBilling(Student student) {
 		
-		int countStudentCourses = (int) student.getCourse().stream()
+		int countStudentCourses = (int) student.getCourses().stream()
 									.map(c->c.getSubjectsList())
 									.count();
 
@@ -19,7 +19,7 @@ public class Finantial {
 
 		System.out.println("\n Subject list:");
 
-		student.getCourse().stream()
+		student.getCourses().stream()
 		.map(c->c.getSubjectsList())				
 		.forEach(s -> System.out.println(String.format("\n %s", ((Course) s).getName())));
 

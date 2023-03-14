@@ -17,10 +17,11 @@ public class Student extends User {
 		
 	}
 
-	public int subjectsEnrolled() {
+/* 	public int subjectsEnrolled() {
 
-		return courses.getSubjectsList().stream().count();;
-	}
+		return 
+		.getSubjectsList().stream().count();;
+	} */
 
 	public void requestSubjectEnrollmentCancelation() {
 		
