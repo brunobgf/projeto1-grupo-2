@@ -2,8 +2,6 @@ import java.util.*;
 
 public class Secretary {
 
-	private Date cancelationDateLimit;
-
 	private Finantial finantial;
 
 	public void notifyFinantial(Student student) {
