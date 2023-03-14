@@ -38,22 +38,6 @@ public class Subject {
 		this.studentEnrollmentQtd = studentEnrollmentQtd;
 	}
 
-	public static int getMAX_STUDENT() {
-		return MAX_STUDENT;
-	}
-
-	public static void setMAX_STUDENT(int mAX_STUDENT) {
-		MAX_STUDENT = mAX_STUDENT;
-	}
-
-	public static int getMIN_STUDENTS() {
-		return MIN_STUDENTS;
-	}
-
-	public static void setMIN_STUDENTS(int mIN_STUDENTS) {
-		MIN_STUDENTS = mIN_STUDENTS;
-	}
-
 	public String getName() {
 		return name;
 	}

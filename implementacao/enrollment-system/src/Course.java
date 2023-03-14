@@ -18,10 +18,6 @@ public class Course {
 		this.subjectsList = subjectsList;
 	}
 
-	public void newSubject(String strDados) {
-		
-	}
-
 	public void newSubject(Subject newSubject) {
 		subjectsList.add(newSubject);
 	}	

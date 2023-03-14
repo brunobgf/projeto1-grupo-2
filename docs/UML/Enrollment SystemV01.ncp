@@ -7,11 +7,12 @@
       <Entity type="Class">
         <Name>Finantial</Name>
         <Access>Public</Access>
-        <Location left="750" top="159" />
-        <Size width="189" height="115" />
-        <Collapsed>True</Collapsed>
+        <Location left="749" top="118" />
+        <Size width="189" height="128" />
+        <Collapsed>False</Collapsed>
         <Member type="Field">private static double TAX_ENROLL = 1000.00</Member>
-        <Member type="Method">public void generateBilling()</Member>
+        <Member type="Field">private static double TAX_PER_SUBJECT = 100.00</Member>
+        <Member type="Method">public void generateBilling(Student student)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
@@ -20,21 +21,22 @@
         <Location left="380" top="118" />
         <Size width="263" height="127" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private Date cancelationDateLimit</Member>
-        <Member type="Method">public void notifyFinantial()</Member>
+        <Member type="Field">private Finantial finantial</Member>
+        <Member type="Method">public void notifyFinantial(Student student)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Subject</Name>
         <Access>Public</Access>
-        <Location left="796" top="1010" />
-        <Size width="250" height="298" />
+        <Location left="783" top="1013" />
+        <Size width="250" height="247" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private Boolean required</Member>
         <Member type="Field">private Boolean active</Member>
         <Member type="Field">private int studentEnrollmentQtd</Member>
         <Member type="Field">private static int MAX_STUDENT = 60</Member>
         <Member type="Field">private static int MIN_STUDENTS = 3</Member>
+        <Member type="Field">private String name</Member>
         <Member type="Method">public void verifyEnrollPeriod()</Member>
         <Member type="Method">public boolean activateDeactivate()</Member>
         <Member type="Method">private void cancelSubject()</Member>
@@ -44,15 +46,16 @@
       <Entity type="Class">
         <Name>Professor</Name>
         <Access>Public</Access>
-        <Location left="92" top="701" />
+        <Location left="91" top="700" />
         <Size width="225" height="94" />
         <Collapsed>False</Collapsed>
+        <Member type="Method">public void accessStudentList(Subject subject)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>Student</Name>
         <Access>Public</Access>
-        <Location left="68" top="865" />
+        <Location left="73" top="982" />
         <Size width="242" height="213" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static int MAX_REQ_SUBJECTS = 4</Member>
@@ -69,66 +72,86 @@
         <Name>Course</Name>
         <Access>Public</Access>
         <Location left="783" top="756" />
-        <Size width="250" height="196" />
+        <Size width="250" height="179" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private List&lt;Subject&gt; subjectsList</Member>
-        <Member type="Method">public void newSubject(String strDados)</Member>
+        <Member type="Field">private String name</Member>
+        <Member type="Method">public void newSubject(Subject newSubject)</Member>
         <Member type="Method">public void addSubject(String strName)</Member>
-        <Member type="Method">public Subject subjectAvailable(String strDisciplina)</Member>
+        <Member type="Method">public Subject subjectAvailable(String subjectName)</Member>
+        <Member type="Method">public Subject getSubject(String subjectName)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>University</Name>
         <Access>Public</Access>
         <Location left="380" top="301" />
-        <Size width="281" height="315" />
+        <Size width="281" height="434" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private list&lt;Course&gt; Courses</Member>
-        <Member type="Field">private list&lt;User&gt; Users</Member>
-        <Member type="Field">private Secretary secretary</Member>
-        <Member type="Field">private int keyAccess</Member>
-        <Member type="Method">public void login()</Member>
-        <Member type="Method">public void userMenu()</Member>
-        <Member type="Method">private void optionsAccessLevelOne()</Member>
-        <Member type="Method">private void optionsAccessLevelTwo()</Member>
-        <Member type="Method">private void optionsAccessLevelAdm()</Member>
-        <Member type="Method">private void addStudent(String strChave)</Member>
+        <Member type="Field">private LinkedList&lt;Course&gt; courses</Member>
+        <Member type="Field">private LinkedList&lt;Subject&gt; subjectlist</Member>
+        <Member type="Field">private LinkedList&lt;User&gt; users</Member>
+        <Member type="Method">public int getKeyAccess(String user, String password)</Member>
+        <Member type="Method">public User getUser(int keyAccess)</Member>
+        <Member type="Method">public void addStudent()</Member>
         <Member type="Method">private void addProfessor()</Member>
         <Member type="Method">private void addSubject()</Member>
-        <Member type="Method">private void enrollStudent()</Member>
-        <Member type="Method">private void getStudents()</Member>
+        <Member type="Method">private void enrollStudent(int key)</Member>
+        <Member type="Method">public void getStudents()</Member>
+        <Member type="Method">public void loadCourseData(String coursePath)</Member>
+        <Member type="Method">public void addCourseToList(String row)</Member>
+        <Member type="Method">public Subject getSubject(String subjectName)</Member>
+        <Member type="Method">public void loadSubjectData(String subjectPath)</Member>
+        <Member type="Method">public void addSubjectToList(String row)</Member>
+        <Member type="Method">public void loadProfessorData(String professorPath)</Member>
+        <Member type="Method">public Course getCourse(String name)</Member>
+        <Member type="Method">public void loadProfessor(String dados)</Member>
+        <Member type="Method">private LinkedList&lt;Course&gt; loadActiveCourses(String[] courses)</Member>
+        <Member type="Method">public void loadStudentData(String professorPath)</Member>
+        <Member type="Method">public void loadStudent(String dados)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
         <Location left="423" top="806" />
-        <Size width="225" height="128" />
+        <Size width="225" height="213" />
         <Collapsed>False</Collapsed>
-        <Member type="Field">private int accessLeve</Member>
-        <Member type="Field">private list &lt;courses&gt; courses</Member>
+        <Member type="Field">private int accessLevel</Member>
+        <Member type="Field">private List&lt;Courses&gt; courses</Member>
+        <Member type="Field">private String user</Member>
+        <Member type="Field">private int keyAccess</Member>
+        <Member type="Field">private int age</Member>
+        <Member type="Field">private String gender</Member>
+        <Member type="Field">private String password</Member>
         <Member type="Method">public Course getCourse(String strName)</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="5" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
           <X>912</X>
-          <Y>980</Y>
+          <Y>963</Y>
         </BendPoint>
         <Direction>Unidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -139,6 +162,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -149,32 +174,28 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Unidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
-      <Relationship type="Generalization" first="3" second="7">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-      </Relationship>
-      <Relationship type="Generalization" first="4" second="7">
-        <StartOrientation>Horizontal</StartOrientation>
-        <EndOrientation>Horizontal</EndOrientation>
-        <BendPoint relativeToStartShape="True">
-          <X>342</X>
-          <Y>980</Y>
-        </BendPoint>
-        <BendPoint relativeToStartShape="False">
-          <X>398</X>
-          <Y>869</Y>
-        </BendPoint>
-      </Relationship>
       <Relationship type="Association" first="5" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
+      </Relationship>
+      <Relationship type="Generalization" first="4" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Generalization" first="3" second="7">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
     </Relationships>
   </ProjectItem>

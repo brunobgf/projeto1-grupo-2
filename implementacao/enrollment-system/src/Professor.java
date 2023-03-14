@@ -7,4 +7,8 @@ public class Professor extends User {
         setAccessLevel(1);
     }
 
+    public void accessStudentList(Subject subject) {
+
+    }
+
 }
