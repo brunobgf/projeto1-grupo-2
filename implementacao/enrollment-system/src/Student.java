@@ -17,6 +17,11 @@ public class Student extends User {
 		
 	}
 
+	public int subjectsEnrolled() {
+
+		return courses.getSubjectsList().stream().count();;
+	}
+
 	public void requestSubjectEnrollmentCancelation() {
 		
 	}
@@ -28,5 +33,6 @@ public class Student extends User {
 	private void verifyOptionalSubjects() {
 		
 	}
+
 
 }
