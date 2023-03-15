@@ -46,7 +46,7 @@
       <Entity type="Class">
         <Name>Professor</Name>
         <Access>Public</Access>
-        <Location left="91" top="700" />
+        <Location left="84" top="788" />
         <Size width="225" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void accessStudentList(Subject subject)</Member>
@@ -55,7 +55,7 @@
       <Entity type="Class">
         <Name>Student</Name>
         <Access>Public</Access>
-        <Location left="73" top="982" />
+        <Location left="67" top="1037" />
         <Size width="242" height="213" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static int MAX_REQ_SUBJECTS = 4</Member>
@@ -86,7 +86,7 @@
         <Name>University</Name>
         <Access>Public</Access>
         <Location left="380" top="301" />
-        <Size width="281" height="434" />
+        <Size width="281" height="468" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private LinkedList&lt;Course&gt; courses</Member>
         <Member type="Field">private LinkedList&lt;Subject&gt; subjectlist</Member>
@@ -96,8 +96,9 @@
         <Member type="Method">public void addStudent()</Member>
         <Member type="Method">private void addProfessor()</Member>
         <Member type="Method">private void addSubject()</Member>
-        <Member type="Method">private void enrollStudent(int key)</Member>
-        <Member type="Method">public void getStudents()</Member>
+        <Member type="Method">public boolean enrollStudent(int key, String nameCourse, String nameSubject)</Member>
+        <Member type="Method">private boolean verifySubject(int key, String nameCourse, String nameSubject)</Member>
+        <Member type="Method">public void getStudents(String course, String subject)</Member>
         <Member type="Method">public void loadCourseData(String coursePath)</Member>
         <Member type="Method">public void addCourseToList(String row)</Member>
         <Member type="Method">public Subject getSubject(String subjectName)</Member>
@@ -109,13 +110,14 @@
         <Member type="Method">private LinkedList&lt;Course&gt; loadActiveCourses(String[] courses)</Member>
         <Member type="Method">public void loadStudentData(String professorPath)</Member>
         <Member type="Method">public void loadStudent(String dados)</Member>
+        <Member type="Method">public void saveUser(String caminhoArquivo)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="423" top="806" />
-        <Size width="225" height="213" />
+        <Location left="414" top="892" />
+        <Size width="225" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int accessLevel</Member>
         <Member type="Field">private List&lt;Courses&gt; courses</Member>
@@ -125,6 +127,28 @@
         <Member type="Field">private String gender</Member>
         <Member type="Field">private String password</Member>
         <Member type="Method">public Course getCourse(String strName)</Member>
+        <Member type="Method">public String dataUser()</Member>
+        <Modifier>None</Modifier>
+      </Entity>
+      <Entity type="Class">
+        <Name>App</Name>
+        <Access>Public</Access>
+        <Location left="49" top="244" />
+        <Size width="219" height="298" />
+        <Collapsed>False</Collapsed>
+        <Member type="Field">private University universityEnrollmentSystem</Member>
+        <Member type="Field">private int keyAccess</Member>
+        <Member type="Field">private String path</Member>
+        <Member type="Method">public void clear()</Member>
+        <Member type="Method">public void pause()</Member>
+        <Member type="Method">public void menu()</Member>
+        <Member type="Method">public void login()</Member>
+        <Member type="Method">public void userMenu()</Member>
+        <Member type="Method">private void optionsAccessLevelTwo()</Member>
+        <Member type="Method">private void optionsAccessLevelOne()</Member>
+        <Member type="Method">private void listStudents()</Member>
+        <Member type="Method">private void enrollStudent()</Member>
+        <Member type="Method">private void optionsAccessLevelAdm()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
@@ -138,7 +162,7 @@
           <X>912</X>
           <Y>963</Y>
         </BendPoint>
-        <Direction>Unidirectional</Direction>
+        <Direction>Bidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="0">
@@ -158,7 +182,7 @@
           <X>691</X>
           <Y>402</Y>
         </BendPoint>
-        <Direction>Unidirectional</Direction>
+        <Direction>Bidirectional</Direction>
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="6">
@@ -178,7 +202,7 @@
         </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
-        <Direction>Unidirectional</Direction>
+        <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="7">
@@ -196,6 +220,12 @@
       <Relationship type="Generalization" first="3" second="7">
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
+      </Relationship>
+      <Relationship type="Association" first="8" second="6">
+        <StartOrientation>Horizontal</StartOrientation>
+        <EndOrientation>Horizontal</EndOrientation>
+        <Direction>Bidirectional</Direction>
+        <AssociationType>Association</AssociationType>
       </Relationship>
     </Relationships>
   </ProjectItem>
