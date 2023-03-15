@@ -1,3 +1,6 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -152,6 +155,24 @@ public class App {
 
         keyboard.close();
 
+        try {
+            saveUser(path + "/Student.txt");
+        } catch (Exception e) {
+            // TODO: handle exception
+        }
+
+    }
+
+    public static void saveUser(String caminhoArquivo) throws IOException {
+
+        BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo));
+
+        for (int i = 0; i < University.getUsers().size(); i++) {
+            bw.write(University.getUsers().get(i).dataUser());
+            bw.newLine();
+        }
+
+        bw.close();
     }
 
 }

@@ -90,4 +90,23 @@ public class User {
 		return "--> " + getUser();
 	}
 
+	public String dataUser() {
+		StringBuilder date = new StringBuilder("");
+		String dateCouses = "";
+
+		for (int i = 0; i < courses.size(); i++) {
+			dateCouses = courses.get(i).getName() + "=" + courses.get(i).toString();
+		}
+
+		date.append(
+				this.getUser() + ";" +
+						this.getKeyAccess() + ";" +
+						this.getAge() + ";" +
+						this.getGender() + ";" +
+						this.getPassword() + ";" +
+						"{~" + dateCouses + "~}");
+
+		return date.toString();
+	}
+
 }

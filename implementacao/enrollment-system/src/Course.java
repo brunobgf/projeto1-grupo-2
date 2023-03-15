@@ -55,7 +55,10 @@ public class Course {
 		String listSubjects = "";
 
 		for (int i = 0; i < subjectsList.size(); i++) {
-			listSubjects = listSubjects + i + 1 + ". " + subjectsList.get(i).getName();
+			if (i == 0)
+				listSubjects = subjectsList.get(i).getName();
+			else
+				listSubjects = "/" + subjectsList.get(i).getName();
 		}
 
 		return listSubjects;

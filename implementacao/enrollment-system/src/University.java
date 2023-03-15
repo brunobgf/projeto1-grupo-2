@@ -257,6 +257,10 @@ public class University {
 		users.add(newStudent);
 	}
 
+	public static LinkedList<User> getUsers() {
+		return users;
+	}
+
 	// #endregion
 
 }
