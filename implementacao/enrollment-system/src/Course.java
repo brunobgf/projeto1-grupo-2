@@ -58,7 +58,7 @@ public class Course {
 			if (i == 0)
 				listSubjects = subjectsList.get(i).getName();
 			else
-				listSubjects = "/" + subjectsList.get(i).getName();
+				listSubjects = listSubjects + "/" + subjectsList.get(i).getName();
 		}
 
 		return listSubjects;

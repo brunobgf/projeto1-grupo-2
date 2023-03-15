@@ -168,6 +168,8 @@ public class App {
         BufferedWriter bw = new BufferedWriter(new FileWriter(caminhoArquivo));
 
         for (int i = 0; i < University.getUsers().size(); i++) {
+            if (University.getUsers().get(i).getAccessLevel() != 2)
+                continue;
             bw.write(University.getUsers().get(i).dataUser());
             bw.newLine();
         }
