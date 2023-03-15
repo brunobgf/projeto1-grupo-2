@@ -14,9 +14,9 @@ public class University {
 	// #region UTILS
 	public static int getKeyAccess(String user, String password) {
 		return users.stream()
-					.filter(c -> c.getUser().equals(user))
-					.filter(c -> c.getPassword().equals(password))
-					.findFirst().get().getKeyAccess();
+				.filter(c -> c.getUser().equals(user))
+				.filter(c -> c.getPassword().equals(password))
+				.findFirst().get().getKeyAccess();
 	}
 
 	static User getUser(int keyAccess) {
@@ -66,33 +66,56 @@ public class University {
 
 	}
 
-	private static void enrollStudent(int key) {
-		System.out.println("Digite o curso");
-		String course = keyboard.next();
-
-		System.out.println("Digite a disciplina");
-		String subject = keyboard.next();
-
+	public static boolean enrollStudent(int key, String nameCourse, String nameSubject) {
 		Subject newSubject;
+		boolean registered = false;
 
-		newSubject = getUser(key).getCourse(course).subjectAvailable(subject);
+		if (!verifySubject(key, nameCourse, nameSubject))
+			return registered;
 
-		if (newSubject != null)
-			getUser(key).getCourse(course).newSubject(newSubject);
+		newSubject = getCourse(nameCourse).getSubject(nameSubject);
+
+		getUser(key).getCourse(nameCourse).newSubject(newSubject);
+		registered = true;
+
+		return registered;
 	}
 
-	static void getStudents() {
-		System.out.println("Digite o curso");
-		String course = keyboard.next();
+	private static boolean verifySubject(int key, String nameCourse, String nameSubject) {
+		boolean available = true;
 
-		System.out.println("Digite a disciplina");
-		String subject = keyboard.nextLine();
+		if ((getUser(key).getCourse(nameCourse) != null)
+				&& (getUser(key).getCourse(nameCourse).getSubject(nameSubject) != null))
+			available = false;
 
-		users.stream()
+		if ((getCourse(nameCourse) == null) || (getCourse(nameCourse).getSubject(nameSubject) == null))
+			available = false;
+
+		return available;
+	}
+
+	static void getStudents(String course, String subject) {
+
+		long countStudents = users.stream()
 				.filter(c -> c.getAccessLevel() == 2)
-				.filter(c -> c.getCourse(course) != null)
-				.filter(c -> c.getCourse(course).subjectAvailable(subject) != null)
-				.forEach(System.out::println);
+				.filter(c -> ((c.getCourse(course) != null) && (c.getCourse(course).getSubject(subject) != null)))
+				.count();
+
+		if (countStudents <= 0) {
+			System.out.println("Não existe estudante matriculado.");
+		} else {
+			System.out.println("\n-------------------------------------");
+			System.out.println("\nLista de alunos matriculados em " + course + " - " + subject + ":");
+
+			users.stream()
+					.filter(c -> c.getAccessLevel() == 2)
+					.filter(c -> c.getCourse(course) != null)
+					.filter(c -> c.getCourse(course).getSubject(subject) != null)
+					.forEach(s -> System.out.println(s.toString()));
+
+			System.out.println("\nQuantidade de alunos matriculados: " + countStudents);
+			System.out.println("\n-------------------------------------");
+		}
 	}
 	// #endregion
 
@@ -177,9 +200,13 @@ public class University {
 	}
 
 	public static Course getCourse(String name) {
-		return courses.stream()
-				.filter(c -> c.getName().equals(name))
-				.findFirst().get();
+		try {
+			return courses.stream()
+					.filter(c -> c.getName().equals(name))
+					.findFirst().get();
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public static void loadProfessor(String dados) {
@@ -224,12 +251,11 @@ public class University {
 
 	public static void loadStudent(String dados) {
 		String[] student = dados.split(";");
-		String[] courses = student[5].substring(2, student[5].length()-1).split("~"); 
+		String[] courses = student[5].substring(2, student[5].length() - 1).split("~");
 
 		User newStudent = new Student(student, loadActiveCourses(courses));
 		users.add(newStudent);
 	}
-
 
 	// #endregion
 

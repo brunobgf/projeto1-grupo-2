@@ -3,17 +3,17 @@ import java.util.*;
 public class User {
 
 	private int accessLevel;
-	private List <Course> courses;
+	private List<Course> courses;
 	private String user;
 	private int keyAccess;
 	private int age;
 	private String gender;
 	private String password;
 
-	User(String[] dados, List <Course> courses){
+	User(String[] dados, List<Course> courses) {
 		user = dados[0];
-		keyAccess = Integer.parseInt(dados[1]);	
-		age = Integer.parseInt(dados[2]);	
+		keyAccess = Integer.parseInt(dados[1]);
+		age = Integer.parseInt(dados[2]);
 		gender = dados[3];
 		password = dados[4];
 		this.courses = courses;
@@ -76,7 +76,18 @@ public class User {
 	}
 
 	public Course getCourse(String strName) {
-		throw new UnsupportedOperationException("The method is not implemented yet.");
+		try {
+			return courses.stream()
+					.filter(c -> c.getName().equals(strName))
+					.findFirst().get();
+		} catch (Exception e) {
+			return null;
+		}
+	}
+
+	@Override
+	public String toString() {
+		return "--> " + getUser();
 	}
 
 }

@@ -1,1 +1,3 @@
-Ana;03;20;Feminino;678;{~Engenharia de Software=Calculo/Estatística~}
+Ana;03;20;Feminino;678;{~Administracao=Calculo/Estatística~}
+Samara;04;20;Feminino;678;{~Administracao=Calculo/Estatística~}
+Júlia;05;20;Feminino;678;{~Letras=Gramatica~}

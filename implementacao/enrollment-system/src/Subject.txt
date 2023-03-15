@@ -1,3 +1,5 @@
 Calculo;A;O;20
 Estatística;A;O;20
 Matemática Discreta;A;O;20
+Literatura;A;O;1
+Gramatica;A;O;3

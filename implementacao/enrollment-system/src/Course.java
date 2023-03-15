@@ -5,7 +5,7 @@ public class Course {
 	private List<Subject> subjectsList;
 	private String name;
 
-	Course(String name, List<Subject> subjects){
+	Course(String name, List<Subject> subjects) {
 		subjectsList = subjects;
 		this.name = name;
 	}
@@ -20,10 +20,10 @@ public class Course {
 
 	public void newSubject(Subject newSubject) {
 		subjectsList.add(newSubject);
-	}	
+	}
 
 	public void addSubject(String strName) {
-		
+
 	}
 
 	public Subject subjectAvailable(String subjectName) {
@@ -31,9 +31,14 @@ public class Course {
 	}
 
 	public Subject getSubject(String subjectName) {
-		return subjectsList.stream()
-						   .filter(c -> c.getName().equals(subjectName))
-						   .findFirst().get();
+		try {
+			return subjectsList.stream()
+					.filter(c -> c.getName().equals(subjectName))
+					.findFirst().get();
+
+		} catch (Exception e) {
+			return null;
+		}
 	}
 
 	public String getName() {
@@ -45,12 +50,12 @@ public class Course {
 	}
 
 	@Override
-	public String toString(){
+	public String toString() {
 
 		String listSubjects = "";
 
-		for (int i = 0; i < subjectsList.size(); i++){
-			listSubjects = listSubjects + i+1 + ". " + subjectsList.get(i).getName();
+		for (int i = 0; i < subjectsList.size(); i++) {
+			listSubjects = listSubjects + i + 1 + ". " + subjectsList.get(i).getName();
 		}
 
 		return listSubjects;

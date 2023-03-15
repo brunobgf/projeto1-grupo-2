@@ -1,6 +1,8 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
+import javax.lang.model.util.ElementScanner14;
+
 public class App {
     // #region AUXILIARY VARIABLES
     private static Scanner keyboard = new Scanner(System.in, "UTF-8");
@@ -43,9 +45,9 @@ public class App {
     // #region -LOGIN FLOW
     public static void login() {
         System.out.println("Digite seu usuário");
-        String user = keyboard.next();
+        String user = keyboard.nextLine();
         System.out.println("Digite sua senha");
-        String password = keyboard.next();
+        String password = keyboard.nextLine();
 
         keyAccess = University.getKeyAccess(user, password);
 
@@ -68,7 +70,14 @@ public class App {
 
     private static void optionsAccessLevelTwo() {
         System.out.println("\nOlá " + University.getUser(keyAccess).getUser() + ".\nO que deseja fazer?\n");
-        System.out.println("\nOlá " + University.getUser(keyAccess).getCourses() + ".\nO que deseja fazer?\n");
+        System.out.println("01. Matricular-se em disciplina");
+        int opc = keyboard.nextInt();
+
+        switch (opc) {
+            case 1:
+                enrollStudent();
+                break;
+        }
     }
 
     private static void optionsAccessLevelOne() {
@@ -78,9 +87,32 @@ public class App {
 
         switch (opc) {
             case 1:
-                University.getStudents();
+                listStudents();
                 break;
         }
+    }
+
+    private static void listStudents() {
+        System.out.println("Digite o curso");
+        String course = keyboard.next();
+
+        System.out.println("Digite a disciplina");
+        String subject = keyboard.next();
+
+        University.getStudents(course, subject);
+    }
+
+    private static void enrollStudent() {
+        System.out.println("Digite o curso");
+        String course = keyboard.next();
+
+        System.out.println("Digite a disciplina");
+        String subject = keyboard.next();
+
+        if (University.enrollStudent(keyAccess, course, subject))
+            System.out.println("Matricula registrada com sucesso.");
+        else
+            System.out.println("Não foi possível realizar matricula.");
     }
 
     private static void optionsAccessLevelAdm() {
@@ -108,14 +140,12 @@ public class App {
         int option;
 
         do {
-            clear();
             option = menu();
             switch (option) {
                 case 1:
                     login();
                     userMenu();
                     break;
-
             }
             pause();
         } while (option != 0);
