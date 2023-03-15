@@ -46,7 +46,7 @@
       <Entity type="Class">
         <Name>Professor</Name>
         <Access>Public</Access>
-        <Location left="91" top="700" />
+        <Location left="84" top="788" />
         <Size width="225" height="94" />
         <Collapsed>False</Collapsed>
         <Member type="Method">public void accessStudentList(Subject subject)</Member>
@@ -55,7 +55,7 @@
       <Entity type="Class">
         <Name>Student</Name>
         <Access>Public</Access>
-        <Location left="73" top="982" />
+        <Location left="67" top="1037" />
         <Size width="242" height="213" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private static int MAX_REQ_SUBJECTS = 4</Member>
@@ -86,7 +86,7 @@
         <Name>University</Name>
         <Access>Public</Access>
         <Location left="380" top="301" />
-        <Size width="281" height="451" />
+        <Size width="281" height="468" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private LinkedList&lt;Course&gt; courses</Member>
         <Member type="Field">private LinkedList&lt;Subject&gt; subjectlist</Member>
@@ -110,13 +110,14 @@
         <Member type="Method">private LinkedList&lt;Course&gt; loadActiveCourses(String[] courses)</Member>
         <Member type="Method">public void loadStudentData(String professorPath)</Member>
         <Member type="Method">public void loadStudent(String dados)</Member>
+        <Member type="Method">public void saveUser(String caminhoArquivo)</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>User</Name>
         <Access>Public</Access>
-        <Location left="423" top="806" />
-        <Size width="225" height="213" />
+        <Location left="414" top="892" />
+        <Size width="225" height="230" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private int accessLevel</Member>
         <Member type="Field">private List&lt;Courses&gt; courses</Member>
@@ -126,13 +127,14 @@
         <Member type="Field">private String gender</Member>
         <Member type="Field">private String password</Member>
         <Member type="Method">public Course getCourse(String strName)</Member>
+        <Member type="Method">public String dataUser()</Member>
         <Modifier>None</Modifier>
       </Entity>
       <Entity type="Class">
         <Name>App</Name>
         <Access>Public</Access>
         <Location left="49" top="244" />
-        <Size width="219" height="315" />
+        <Size width="219" height="298" />
         <Collapsed>False</Collapsed>
         <Member type="Field">private University universityEnrollmentSystem</Member>
         <Member type="Field">private int keyAccess</Member>
@@ -147,12 +149,13 @@
         <Member type="Method">private void listStudents()</Member>
         <Member type="Method">private void enrollStudent()</Member>
         <Member type="Method">private void optionsAccessLevelAdm()</Member>
-        <Member type="Method">public void newMethod()</Member>
         <Modifier>None</Modifier>
       </Entity>
     </Entities>
     <Relationships>
       <Relationship type="Association" first="5" second="2">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -163,12 +166,16 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="0">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="5">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="True">
@@ -179,6 +186,8 @@
         <AssociationType>Composition</AssociationType>
       </Relationship>
       <Relationship type="Association" first="1" second="6">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <BendPoint relativeToStartShape="False">
@@ -189,12 +198,16 @@
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="6" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Vertical</StartOrientation>
         <EndOrientation>Vertical</EndOrientation>
         <Direction>Bidirectional</Direction>
         <AssociationType>Association</AssociationType>
       </Relationship>
       <Relationship type="Association" first="5" second="7">
+        <Label>
+        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Bidirectional</Direction>
@@ -209,8 +222,6 @@
         <EndOrientation>Horizontal</EndOrientation>
       </Relationship>
       <Relationship type="Association" first="8" second="6">
-        <Label>
-        </Label>
         <StartOrientation>Horizontal</StartOrientation>
         <EndOrientation>Horizontal</EndOrientation>
         <Direction>Bidirectional</Direction>
